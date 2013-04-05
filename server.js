@@ -5,6 +5,9 @@ var unpack = require('git-list-pack')
   , concat = require('concat-stream')
   , transport = require('git-transport-protocol')
   , through = require('through')
+  , browserify = require('browserify')
+  , path = require('path')
+  , url = require('url')
 
 var http = require('http')
   , ecstatic = require('ecstatic')(__dirname)
@@ -13,13 +16,28 @@ var http = require('http')
   , sock
 
 // serve up files.
-server = http.createServer(ecstatic)
+server = http.createServer(serve)
 server.listen(9999)
 console.log('Server started at port 9999')
 
 // do websockets. install at `/git`.
 sock = shoe(connect)
 sock.install(server, '/git')
+
+function serve(req, resp) {
+  var parsed = url.parse(req.url)
+    , bfy
+
+  if(parsed.pathname === '/bundle.js') {
+    bfy = browserify(path.join(__dirname, 'client.js'))
+    bfy.transform('brfs')
+    resp.statusCode = 200
+    resp.setHeader('content-type', 'text/javascript')
+    bfy.bundle().pipe(resp)
+    return
+  }
+  ecstatic(req, resp)
+}
 
 function connect(conn) {
   // this runs whenever we get a new websocket connection.

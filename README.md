@@ -8,7 +8,6 @@ This is a demo of the Git implementation done by [chrisdickinson]. It's based on
 $ git clone https://github.com/Dignifiedquire/js-git-demo.git
 $ cd js-git-demo
 $ npm install
-$ browserify client.js > bundle.js
 $ node server.js
 $ open http://localhost:9999
 ```
