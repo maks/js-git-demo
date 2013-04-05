@@ -1,0 +1,13 @@
+<fieldset>
+  <label for="id_ref">Branch:</label>
+  <select id="id_ref" name="checkout">
+    <option value="">---</option>
+    {% for ref in refs %}
+      <option value="{{ ref.hash }}">{{ ref.name }}</option>
+    {% endfor %}
+  </select>
+</fieldset>
+
+<div id="stage">
+  <p><em>Select a branch.</em></p>
+</div>

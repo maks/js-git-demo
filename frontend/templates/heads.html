@@ -1,0 +1,8 @@
+<select name="heads">
+  <option value="">---</option>
+  {% for ref in refs %}
+    <option value="{{ ref.hash }}">
+      {{ ref.name }}
+    </option>
+  {% endfor %}
+</select>

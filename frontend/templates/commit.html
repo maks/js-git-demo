@@ -1,0 +1,11 @@
+<div id="hash" class="commit">
+	<code>{{ item.hash }}</code>
+	<div class="meta">
+        <img src="{{ item.human.email|gravatar:40 }}" alt="{{ item.human.name }}" align="left" />
+        <span>{{ item.human.name }}</span>
+        <span>{{ item.human.time|date:"N jS Y P" }}</span>
+    </div>
+  <div>
+    {{ item.message }}
+  </div>
+</div>

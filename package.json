@@ -13,8 +13,6 @@
     "browserify": "~2.11.0",
     "git-fetch-pack": "0.0.1",
     "git-walk-refs": "0.0.1",
-    "jquery-browserify": "~1.8.1",
-    "lodash": "~1.1.1",
     "git-objectify-pack": "0.0.3"
   },
   "dependencies": {
@@ -29,6 +27,12 @@
     "browserify": "~2.11.0",
     "git-walk-tree": "0.0.1",
     "git-walk-refs": "0.0.1",
-    "plate": "~1.0.9"
+    "plate": "~1.0.9",
+    "ever": "0.0.3",
+    "ever-delegate": "0.0.0",
+    "idb-wrapper": "~1.1.0",
+    "git-to-js": "0.0.3",
+    "cssauron-html": "0.0.1",
+    "domnode-dom": "0.0.2"
   }
 }
