@@ -29,7 +29,7 @@ function serve(req, resp) {
     , bfy
 
   if(parsed.pathname === '/bundle.js') {
-    bfy = browserify(path.join(__dirname, 'client.js'))
+    bfy = browserify(path.join(__dirname, 'frontend', 'index.js'))
     bfy.transform('brfs')
     resp.statusCode = 200
     resp.setHeader('content-type', 'text/javascript')
