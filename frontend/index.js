@@ -16,6 +16,11 @@ var conn = shoe('/git')
   , client
   , db
 
+var pre = document.createElement('pre')
+ 
+document.body.appendChild(pre)
+
+
 // create a leveldb database.
 db = levelidb('/tmp/git', {
   encoding: 'json'
@@ -52,10 +57,10 @@ function find(oid, ready) {
 // emits binary packfile data.
 client.pack
   .pipe(unpack())
-    .on('data', function(d) { console.log(d.num) })
+    .on('data', function(d) { pre.textContent = ''+(d.num) })
   .pipe(objectify(find))
-  .pipe(through(dbify))
     .on('end', end)
+  .pipe(through(dbify))
   .pipe(db.writeStream())
 
 // parse turns our serialized objects
@@ -77,6 +82,8 @@ function dbify(obj) {
 
   this.queue({key: 'hash:'+obj.hash, value: {type: obj.type, data: base.toString('base64')}})
 }
+
+window.please_render = end
 
 function end() {
   render(db, refs)
