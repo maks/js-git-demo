@@ -19,7 +19,7 @@
     "concat-stream": "~0.1.1",
     "through": "~2.2.7",
     "git-transport-protocol": "0.0.3",
-    "git-list-pack": "0.0.2",
+    "git-list-pack": "0.0.4",
     "ecstatic": "~0.4.2",
     "shoe": "0.0.10",
     "git-packed-ref-parse": "0.0.0",
