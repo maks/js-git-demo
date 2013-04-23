@@ -56,10 +56,11 @@ function find(oid, ready) {
 // `pack` is a separate stream that
 // emits binary packfile data.
 client.pack
+  .once('data', function() { window.start = Date.now() })
   .pipe(unpack())
     .on('data', function(d) { pre.textContent = ''+(d.num) })
-  .pipe(objectify(find))
     .on('end', end)
+  .pipe(objectify(find))
   .pipe(through(dbify))
   .pipe(db.writeStream())
 
@@ -86,5 +87,6 @@ function dbify(obj) {
 window.please_render = end
 
 function end() {
+  window.finish = Date.now()  
   render(db, refs)
 }
