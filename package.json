@@ -33,6 +33,7 @@
     "idb-wrapper": "~1.1.0",
     "git-to-js": "0.0.3",
     "cssauron-html": "0.0.1",
-    "domnode-dom": "0.0.2"
+    "domnode-dom": "0.0.2",
+    "levelidb" : ""
   }
 }
