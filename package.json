@@ -34,6 +34,6 @@
     "git-to-js": "0.0.3",
     "cssauron-html": "0.0.1",
     "domnode-dom": "0.0.2",
-    "levelidb" : ""
+    "levelidb" : "0.2.6"
   }
 }
